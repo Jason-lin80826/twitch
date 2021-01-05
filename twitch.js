@@ -1,9 +1,16 @@
 let isLoading = false
 let nowIndex = 0
-appendData()
-function getdata (callback){
+let newlang = 'zh'
+appendData(newlang)
+function changLang(lang){
+  $("h1").text(window.I18N[lang].TITLE);
+  newlang=lang
+  $('.contain').empty()
+  appendData(newlang)
+}
+function getdata (newlang,callback){
     let id = '5nim7hdqglhzm7ueuaygfvg4amxu0u'
-    let url = 'https://api.twitch.tv/kraken/streams/?client_id='+id+'&game=League%20of%20Legends&limit=9&offset='+nowIndex;
+    let url = 'https://api.twitch.tv/kraken/streams/?client_id='+id+'&game=League%20of%20Legends&limit=9&offset='+nowIndex+'&language='+newlang;
     isLoading = true
         $.ajax({
             url : url,
@@ -18,8 +25,8 @@ function getdata (callback){
             }
         })
 }
-function appendData(){
-    getdata((err,data)=>{
+function appendData(lang){
+    getdata(lang,(err,data)=>{
         if(err){
             console.log(err)
         }else{
@@ -63,8 +70,7 @@ function getcolumn(data){
 document.onscroll = function(){
     if($(window).scrollTop()+$(window).height()>$(document).height()-200){
       if(!isLoading){
-        appendData()
-        console.log(nowIndex)
+        appendData(newlang)
       }
     }
 }
