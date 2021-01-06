@@ -1,0 +1,24 @@
+{
+  "name": "twitch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "twitch.js",
+  "dependencies": {
+    "jquery": "^3.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jason-lin80826/twitch.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jason-lin80826/twitch/issues"
+  },
+  "homepage": "https://github.com/Jason-lin80826/twitch#readme"
+}
